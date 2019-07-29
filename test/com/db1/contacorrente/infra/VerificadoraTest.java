@@ -131,10 +131,10 @@ public class VerificadoraTest {
 	public void deveRetornarExceptionQuandoValorForMaiorQueSaldo() {
 		String mensagem = null;
 		try {
-			Verificadora.valorForMaiorQueSaldo(100.0, 101.0, "Valor a ser sacado é maior que o saldo disponível");
+			Verificadora.valorForMaiorQueSaldo(100.0, 101.0, "Saldo Insuficiente: valor a ser sacado é maior que o saldo disponível");
 		} catch (RuntimeException e ) {
 			mensagem = e.getMessage();
 		}
-		Assert.assertEquals("Valor a ser sacado é maior que o saldo disponível", mensagem);
+		Assert.assertEquals("Saldo Insuficiente: valor a ser sacado é maior que o saldo disponível", mensagem);
 	}
 }
