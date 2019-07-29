@@ -41,11 +41,9 @@ public class ContaCorrente {
 	}
 	
 	public void sacar (Double valor) {
-		//Para fins de teste, foi atribuido um valor no saldo.
-		this.saldo = 100.0;
 		Verificadora.saldoMaiorQueZero(saldo, "Não possui saldo disponível na conta");
 		Verificadora.valorMaiorQueZero(valor, "Valor a ser sacado deve ser maior que zero");
-		Verificadora.valorForMaiorQueSaldo(saldo, valor, "Valor a ser sacado é maior que o saldo disponível");
+		Verificadora.valorForMaiorQueSaldo(saldo, valor, "Saldo Insuficiente: valor a ser sacado é maior que o saldo disponível");
 		this.saldo -= valor;
 		this.historico.add("Sacado: R$ " + valor + " - Saldo atual: R$ " + saldo);
 	}

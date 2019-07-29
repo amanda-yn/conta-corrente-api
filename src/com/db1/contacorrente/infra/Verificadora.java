@@ -1,7 +1,7 @@
 package com.db1.contacorrente.infra;
 
 public class Verificadora {
-	//Verificando Estado 
+	//Verificando Estados 
 	
 	public static void verificaStringValida(String value, String message) {
 		if(value == null || value.trim().isEmpty()) {

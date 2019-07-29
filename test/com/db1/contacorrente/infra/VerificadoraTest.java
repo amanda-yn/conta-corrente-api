@@ -6,7 +6,7 @@ import org.junit.Test;
 public class VerificadoraTest {
 	//Ao testar uma exceção, utiliza o comando Try Catch para manipulação
 	
-	@Test		//Validando agencia, numero e cliente
+	@Test		//Validando agência, numero e cliente
 	public void deveRetornarExceptionQuandoStringForNula() {
 		String mensagem = null;
 		try {
@@ -76,11 +76,11 @@ public class VerificadoraTest {
 	public void deveRetornarExceptionQuandoValorForValido() {
 		String mensagem = null;
 		try {
-			Verificadora.valorMaiorQueZero(100.0, "Valor válido");
+			Verificadora.valorMaiorQueZero(100.0, "Valor válido"); //Não deve retornar pois o valor é válido
 		} catch (RuntimeException e ) {
 			mensagem = e.getMessage();
 		}
-		Assert.assertNull(mensagem);
+		Assert.assertNull(mensagem); //Retornará nada, pois não passou pelo if.
 	}
 	
 	@Test		//Validando saldo
@@ -117,14 +117,14 @@ public class VerificadoraTest {
 	}
 	
 	@Test
-	public void deveRetornarExceptionQuandoSaldoForValido() {
+	public void naoDeveRetornarExceptionQuandoSaldoForValido() { 
 		String mensagem = null;
 		try {
 			Verificadora.saldoMaiorQueZero(100.0, "Saldo disponível");
 		} catch (RuntimeException e ) {
 			mensagem = e.getMessage();
 		}
-		Assert.assertNull(mensagem);
+		Assert.assertNull(mensagem); 
 	}
 	
 	@Test		//Validando se o valor é maior que o saldo
