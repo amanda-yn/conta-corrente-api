@@ -106,17 +106,6 @@ public class VerificadoraTest {
 	}
 	
 	@Test
-	public void deveRetornarExceptionQuandoSaldoForZero() {
-		String mensagem = null;
-		try {
-			Verificadora.saldoMaiorQueZero(0.0, "Não possui saldo disponível");
-		} catch (RuntimeException e) {
-			mensagem = e.getMessage();
-		}
-		Assert.assertEquals("Não possui saldo disponível", mensagem);
-	}
-	
-	@Test
 	public void naoDeveRetornarExceptionQuandoSaldoForValido() { 
 		String mensagem = null;
 		try {
@@ -125,16 +114,5 @@ public class VerificadoraTest {
 			mensagem = e.getMessage();
 		}
 		Assert.assertNull(mensagem); 
-	}
-	
-	@Test		//Validando se o valor é maior que o saldo
-	public void deveRetornarExceptionQuandoValorForMaiorQueSaldo() {
-		String mensagem = null;
-		try {
-			Verificadora.valorForMaiorQueSaldo(100.0, 101.0, "Saldo Insuficiente: valor a ser sacado é maior que o saldo disponível");
-		} catch (RuntimeException e ) {
-			mensagem = e.getMessage();
-		}
-		Assert.assertEquals("Saldo Insuficiente: valor a ser sacado é maior que o saldo disponível", mensagem);
 	}
 }

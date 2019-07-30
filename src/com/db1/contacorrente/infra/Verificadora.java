@@ -10,19 +10,13 @@ public class Verificadora {
 	}
 	
 	public static void valorMaiorQueZero(Double value, String message) {
-		if(value == null || value <= 0) { 
+		if(value == null || value <= 0) {
 			throw new RuntimeException(message);
 		}
 	}
 	
 	public static void saldoMaiorQueZero(Double saldo, String message) {
-		if(saldo == null || saldo <= 0) {
-			throw new RuntimeException(message);
-		}
-	}
-	
-	public static void valorForMaiorQueSaldo(Double saldo, Double value, String message) {
-		if(value > saldo) {
+		if(saldo == null || saldo < 0) {
 			throw new RuntimeException(message);
 		}
 	}
