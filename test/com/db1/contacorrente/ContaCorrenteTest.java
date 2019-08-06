@@ -145,11 +145,26 @@ public class ContaCorrenteTest {
 	}
 	
 	@Test
+	public void deveRetornarExcecaoQuandoSaldoForInsuficiente() {
+		ContaCorrente contaCorrente = new ContaCorrente("0465", "000099999999", "Cliente");
+		String mensagem = null;
+		try {
+			contaCorrente.getSaldo();
+			contaCorrente.sacar(50.0);
+		} catch (RuntimeException e) {
+			mensagem = e.getMessage();
+		}
+		Assert.assertEquals("Saldo insuficiente", mensagem);
+		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0001);
+		Assert.assertEquals(0, contaCorrente.getHistorico().size());
+	}
+	
+	@Test
 	public void deveSacarValor() {
 		ContaCorrente contaCorrente = new ContaCorrente("0465", "000099999999", "Cliente Nome");
 		contaCorrente.depositar(100.0);
-		contaCorrente.sacar(100.0);
-		Assert.assertEquals(0.0, contaCorrente.getSaldo(), 0.0001);
-		Assert.assertEquals("Sacado: R$ 100.0 - Saldo atual: R$ 0.0", contaCorrente.getHistorico().get(1));
+		contaCorrente.sacar(50.0);
+		Assert.assertEquals(50.0, contaCorrente.getSaldo(), 00.1);
+		Assert.assertEquals("Sacado: R$ 50.0 - Saldo atual: R$ 50.0", contaCorrente.getHistorico().get(1));
 	}
 }

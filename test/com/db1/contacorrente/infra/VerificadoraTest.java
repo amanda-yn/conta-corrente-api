@@ -106,6 +106,17 @@ public class VerificadoraTest {
 	}
 	
 	@Test
+	public void deveRetornarExceptionQuandoSaldoForZero() {
+		String mensagem = null;
+		try {
+			Verificadora.saldoMaiorQueZero(0.0, "Saldo indisponível na conta");
+		} catch (RuntimeException e ) {
+			mensagem = e.getMessage();
+		}
+		Assert.assertEquals("Saldo indisponível na conta", mensagem);
+	}
+	
+	@Test
 	public void naoDeveRetornarExceptionQuandoSaldoForValido() { 
 		String mensagem = null;
 		try {

@@ -16,7 +16,7 @@ public class Verificadora {
 	}
 	
 	public static void saldoMaiorQueZero(Double saldo, String message) {
-		if(saldo == null || saldo < 0) {
+		if(saldo == null || saldo <= 0) {
 			throw new RuntimeException(message);
 		}
 	}
